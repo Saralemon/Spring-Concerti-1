@@ -1,0 +1,11 @@
+{
+  "name": "spring-concerti",
+  "version": "1.0.0",
+  "description": "Package per il frontend del progetto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alessandro di Mario",
+  "license": "ISC"
+}
