@@ -9,6 +9,7 @@
   "author": "Alessandro di Mario",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1"
   }
 }
