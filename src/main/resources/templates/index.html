@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+	<head th:replace="fragments/base :: headerfiles('SIW')"></head>
+
+	<body>
+
+		<nav th:replace="fragments/base :: navbar"></nav>
+
+		<header th:replace="fragments/base :: testata"></header>
+
+		<!-- Corpo Pagina -->
+		<div class="container-fluid bg-white p-0 pb-1">
+			<!-- Vetrina Concerti -->
+			<h2 class="display-4 text-center">In Primo Piano</h2>
+			<div class="container-fluid d-flex flex-wrap my-2 justify-content-center">
+				<div id="concerto-card" class="card m-1" th:each="concerto : ${concerti}">
+					<div class="card-body text-center m-0">
+						<h3 class="card-title" th:text="${concerto.nome}">Nome Concerto</h3>
+						<p class="card-text">
+							<span th:text="${#temporals.format(concerto.data, 'dd/MM/yyyy')}">01/01/2000</span>
+							<span>,</span>
+							<span th:text="${#temporals.format(concerto.orario, 'HH:mm')}">00:00</span>
+							<br>
+							<span th:text="${concerto.luogo.nome}">Luogo</span>
+							<span>,</span>
+							<span th:text="${concerto.luogo.citta}">Città</span>
+						</p>
+						<a class="btn btn-primary" th:href="@{'/concerto/' + ${concerto.id}}">Prenota</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Introduzione al Sito -->
+			<div class="container">
+				<h2 class="text-center" th:text="#{app.nome}"></h2>
+				<p class="text-center">
+					Prenotare un Concerto non è mai stato così facile!<br>
+					Spring-Concerti è un sito di biglietteria per eventi musicali in tutta Italia.<br>
+					Scegli tra una ampia gamma di concerti disponibili su tutto il territorio nazionale, prenotabili
+					semplicemente con un click.<br>
+					Registrati subito per acquistare tutti i biglietti che vuoi!
+				</p>
+			</div>
+
+		</div>
+
+		<footer th:replace="fragments/base :: fondo"></footer>
+
+	</body>
+
+</html>

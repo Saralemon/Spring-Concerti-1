@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+	<head th:fragment="headerfiles(title)">
+		<title th:text="${title}"></title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap CSS & Bootstrap CSS icons -->
+		<link rel="stylesheet" th:href="@{/layout/css/bootstrap.css}">
+		<link rel="stylesheet" href="@{/layout/css/bootstrap-icons.css}">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" th:href="@{/layout/css/style.css}">
+		<!-- Bootstrap Script -->
+		<script th:src="@{/layout/javascript/bootstrap.bundle.js}"></script>
+	</head>
+
+	<!-- 
+		<link rel="stylesheet" href="/src/main/resources/static/layout/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/src/main/resources/static/layout/css/bootstrap.css">
+        <link rel="stylesheet" href="/src/main/resources/static/layout/css/style.css">
+        <script src="/src/main/resources/static/layout/javascript/bootstrap.bundle.js"></script>
+	 -->
+
+	<body class="mx-0 mx-md-3" th:fragment="body(main)">
+
+		<!-- Navbar del sito -->
+		<nav th:fragment="navbar" class="navbar navbar-dark bg-primary navbar-expand-lg">
+			<div class="container-fluid">
+				<a class="navbar-brand" sec:authorize="isAuthenticated()" th:href="@{/default}" th:text="#{app.nome}"></a>
+				<a class="navbar-brand" sec:authorize="isAnonymous()" th:href="@{/index}" th:text="#{app.nome}"></a>
+				<div sec:authorize="isAnonymous()" class="nav-item">
+					<a class="btn btn-outline-light" th:href="@{/login}">
+						<i class="bi bi-person"></i>
+						<span th:text="#{nav.area}"></span>
+					</a>
+				</div>
+				<div sec:authorize="isAuthenticated()" class="nav-item dropstart">
+					<button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+						aria-expanded="false" sec:authentication="name">
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" th:href="@{/profilo}">
+								<i class="bi-person"></i>
+								<span th:text="#{nav.profilo}"></span>
+							</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" th:href="@{/logout}">
+								<i class="bi-box-arrow-left"></i>
+								<span th:text="#{app.logout}"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Testata -->
+		<header th:fragment="testata" class="d-flex align-items-center">
+			<div class="container-fluid">
+				<h1 id="header-title" class="text-white" th:text="#{header.title}"></h1>
+			</div>
+		</header>
+
+		<!-- Elemento main delle pagine -->
+		<th:block th:replace="${main}"></th:block>
+
+		<!-- Fondo -->
+		<footer th:fragment="fondo" class="bg-white border-top border-4 border-light">
+			<div class="container-fluid">
+				<h5 th:text="#{footer.social}"></h5>
+				<div class="h3 d-flex gap-3">
+					<!-- per colorare usare text-{color} -->
+					<i class="bi-facebook"></i>
+					<i class="bi-instagram"></i>
+					<i class="bi-twitter"></i>
+				</div>
+			</div>
+			<div class="container-fluid bg-primary text-light d-flex py-3">
+				<h6 class="m-0" th:text="#{app.nome}"></h6>
+				<i class="bi-stars ms-2"></i>
+				<div class="ms-auto">
+					<a class="text-light" sec:authorize="isAnonymous()" th:href="@{/login}"
+						th:text="#{app.login}">
+					</a>
+					<a class="text-light" sec:authorize="isAuthenticated()" th:href="@{/logout}"
+						th:text="#{app.logout}">
+					</a>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+
+</html>
