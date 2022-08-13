@@ -25,6 +25,7 @@ public class CredenzialiValidator implements Validator {
         Credenziali credenziali = (Credenziali)target;
         String username = credenziali.getUsername().trim();
         String password = credenziali.getPassword().trim();
+
         log.debug("Validazione campo username");
         rejectIfEmptyOrWhitespace(errors, "username", "required");
         if(username.length() < 4 || username.length() > 20) {
@@ -35,6 +36,7 @@ public class CredenzialiValidator implements Validator {
             log.debug("Username già utilizzato");
             errors.rejectValue("username", "unique");
         }
+        
         log.debug("Validazione campo password");
         rejectIfEmptyOrWhitespace(errors, "password", "required");
         if(password.length() < 6 || password.length() > 20) {
