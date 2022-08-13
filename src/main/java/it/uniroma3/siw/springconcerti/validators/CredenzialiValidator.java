@@ -22,6 +22,7 @@ public class CredenzialiValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+        log.info("Inizio Validazione Credenziali");
         Credenziali credenziali = (Credenziali)target;
         String username = credenziali.getUsername().trim();
         String password = credenziali.getPassword().trim();
@@ -44,6 +45,7 @@ public class CredenzialiValidator implements Validator {
             errors.rejectValue("password", "size");
         }
         
+        log.info("Validazione Credenziali Terminata");
     }
 
     @Override

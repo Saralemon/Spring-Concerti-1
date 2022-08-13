@@ -1,5 +1,6 @@
 package it.uniroma3.siw.springconcerti.model;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.AUTO;
 
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import it.uniroma3.siw.springconcerti.enumeration.Ruolo;
 import lombok.Data;
@@ -28,5 +30,8 @@ public class Credenziali {
     
     @Enumerated(STRING)
     private Ruolo ruolo;
+
+    @OneToOne(cascade = ALL)
+    private Utente utente;
 
 }
