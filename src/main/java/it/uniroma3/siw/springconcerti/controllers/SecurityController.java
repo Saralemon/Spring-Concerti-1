@@ -3,6 +3,8 @@ package it.uniroma3.siw.springconcerti.controllers;
 import static it.uniroma3.siw.springconcerti.enumeration.Ruolo.ADMIN;
 import static it.uniroma3.siw.springconcerti.enumeration.Ruolo.UTENTE;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -66,7 +68,7 @@ public class SecurityController {
 
     @PostMapping("/register")
     public String registerUser(
-            @ModelAttribute("utente") Utente utente,
+            @Valid @ModelAttribute("utente") Utente utente,
             BindingResult utenteBindingResult,
             @ModelAttribute("credenziali") Credenziali credenziali,
             BindingResult credenzialiBindingResult,
