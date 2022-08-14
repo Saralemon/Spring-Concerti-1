@@ -7,8 +7,10 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.springconcerti.model.Utente;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class UtenteValidator implements Validator {
 
     private static final Logger log = LoggerFactory.getLogger(UtenteValidator.class);
