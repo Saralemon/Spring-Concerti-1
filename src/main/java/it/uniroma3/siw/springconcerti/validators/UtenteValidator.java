@@ -15,7 +15,8 @@ public class UtenteValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        log.info("Validazione Utente");
+        log.info("Validazione Utente Iniziata");
+        log.info("Validazione Utente Terminata");
     }
 
     @Override

@@ -70,7 +70,7 @@ public class SecurityController {
     public String registerUser(
             @Valid @ModelAttribute("utente") Utente utente,
             BindingResult utenteBindingResult,
-            @ModelAttribute("credenziali") Credenziali credenziali,
+            @Valid @ModelAttribute("credenziali") Credenziali credenziali,
             BindingResult credenzialiBindingResult,
             Model model) {
         /* Validazione */

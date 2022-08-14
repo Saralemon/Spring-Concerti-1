@@ -10,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import it.uniroma3.siw.springconcerti.enumeration.Ruolo;
 import lombok.Data;
@@ -22,12 +24,16 @@ public class Credenziali {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 20, unique = true)
+    @NotBlank
+    @Size(min = 2, max = 20)
+    @Column(unique = true)
     private String username;
 
-    @Column(nullable = false, length = 64)
+    @NotBlank
+    @Column(length = 64)
     private String password;
     
+    @Column(length = 16)
     @Enumerated(STRING)
     private Ruolo ruolo;
 
