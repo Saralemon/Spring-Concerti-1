@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace="fragments/base :: headerfiles(#{profilo.titolo})"></head>
+
+    <body th:replace="fragments/base :: body(~{::main})">
+
+        <main class="container-fluid px-lg-5 py-3 bg-light">
+            <!-- Informazioni Utente -->
+            <section class="container px-lg-5">
+                <div class="d-flex flex-wrap align-items-center bg-white p-3 border">
+                    <img class="img-icon" th:src="@{/images/placeholder.jpg}" alt="Immagine Concerto Placeholder">
+                    <div class="align-content-between ms-3" th:object="${utente}">
+                        <div th:text="#{profilo.nome} + ' ' + *{nome}"></div>
+                        <div th:text="#{profilo.cognome} + ' ' + *{cognome}"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Prenotazioni dell'utente -->
+            <!-- 
+                <section class="container px-lg-5 table-responsive">
+                <table class="table text-center align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cod. Prenotazione</th>
+                            <th scope="col">Data Prenotazione</th>
+                            <th scope="col">Concerto</th>
+                            <th scope="col">Data Concerto</th>
+                            <th scope="col">Posto</th>
+                            <th scope="col">Prezzo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="prenotazione : ${utente.prenotazioni}">
+                            <th scope="row" th:text="${prenotazione.id}">24</th>
+                            <td th:text="${#temporals.format(prenotazione.dataPrenotazione, 'dd/MM/yyyy HH:mm')}">01/01/2000 00:00</td>
+                            <td th:text="${prenotazione.biglietto.concerto.nome}">Nome Concerto</td>
+                            <td>
+                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.data, 'dd/MM/yyyy')}">
+                                    01/01/2000
+                                </span>
+                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.orario, 'HH:mm')}">
+                                    00:00
+                                </span>
+                            </td>
+                            <td th:text="${prenotazione.biglietto.nome}">Curva</td>
+                            <td>
+                                <span th:text="${prenotazione.biglietto.prezzo}">00,00</span>
+                                <span th:text="${valuta}">€</span>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" th:href="@{'/prenotazione/' + ${prenotazione.id} + '/cancella'}">
+                                    <span>Annulla Prenotazione</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+             -->
+
+        </main>
+
+    </body>
+
+</html>
