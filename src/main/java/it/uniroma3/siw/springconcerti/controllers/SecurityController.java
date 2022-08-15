@@ -63,7 +63,7 @@ public class SecurityController {
         log.info("Richiesta GET /default");
         Credenziali credenziali = this.userDetailsComponent.getCredenzialiAutenticate();
         log.info("Indirizzamento alla Home per il ruolo: " + credenziali.getRuolo().toString());
-        return (credenziali.getRuolo().equals(ADMIN)) ? "admin/home" : "redirect:/home";
+        return (credenziali.getRuolo().equals(ADMIN)) ? "redirect:/admin/home" : "redirect:/home";
     }
 
     @PostMapping("/register")
@@ -77,7 +77,6 @@ public class SecurityController {
         log.info("Richiesta POST /register");
         this.credenzialiValidator.validate(credenziali, credenzialiBindingResult);
         this.utenteValidator.validate(utente, utenteBindingResult);
-        log.info("Verifica Parametri Terminata");
 
         if (!utenteBindingResult.hasErrors() && !credenzialiBindingResult.hasErrors()) {
             log.info("Parametri inseriti Corretti");

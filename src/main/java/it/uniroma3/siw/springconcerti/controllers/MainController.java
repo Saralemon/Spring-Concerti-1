@@ -18,5 +18,11 @@ public class MainController {
         log.info("Richiesta GET /index");
         return "index";
     }
+
+    @GetMapping("/admin/home")
+    public String getAdminHome() {
+        log.info("Richiesta GET /admin/home");
+        return "admin/home";
+    }
     
 }
