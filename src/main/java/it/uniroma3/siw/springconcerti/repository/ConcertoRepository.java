@@ -11,6 +11,6 @@ import it.uniroma3.siw.springconcerti.model.Luogo;
 @Repository
 public interface ConcertoRepository extends CrudRepository<Concerto, Long> {
 
-    public boolean existsByDataAndLuogo(LocalDate data, Luogo luogo);
+    public boolean existsByIdNotAndDataAndLuogo(Long id, LocalDate data, Luogo luogo);
     
 }

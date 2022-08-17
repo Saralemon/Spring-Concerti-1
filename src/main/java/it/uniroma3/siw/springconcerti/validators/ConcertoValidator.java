@@ -24,7 +24,7 @@ public class ConcertoValidator implements Validator {
         Concerto concerto = (Concerto)target;
 
         log.debug("Validazione Globale");
-        if(this.concertoService.esisteConcerto(concerto.getData(), concerto.getLuogo())) {
+        if(this.concertoService.esisteConcerto(concerto.getId(), concerto.getData(), concerto.getLuogo())) {
             log.debug("Non si può organizzare più concerti nella stessa data nello stesso luogo");
             errors.reject("Overlap.concerto");
         }
