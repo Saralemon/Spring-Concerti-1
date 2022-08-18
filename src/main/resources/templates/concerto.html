@@ -60,7 +60,7 @@
                 <div class="d-flex px-2 my-2">
                     <h2 th:text="#{concerto.biglietti.titolo}"></h2>
                     <div class="ms-auto" sec:authorize="hasAuthority('ADMIN')">
-                        <a class="btn btn-primary" th:href="@{'/admin/concerto/' + ${concerto.id} + '/biglietti/new'}">
+                        <a class="btn btn-primary" th:href="@{'/admin/concerti/' + ${concerto.id} + '/biglietti/new'}">
                             <i class="fa-solid fa-plus"></i>
                             <span th:text="#{admin.concerto.biglietto.crea}"></span>
                         </a>
@@ -68,12 +68,12 @@
                 </div>
                 <div class="d-flex flex-wrap align-items-center bg-white p-3 border"
                     th:each="biglietto : ${concerto.biglietti}">
-                    <h3 th:text="${biglietto.nome}"></h3>
-                    <div class="ms-3" th:text="${biglietto.tipo.toString()}"></div>
+                    <h3 class="my-auto" th:text="${biglietto.nome}"></h3>
+                    <div class="ms-3" th:text="${biglietto.tipo.nome}"></div>
                     <div class="ms-auto" th:text="${valuta + ' ' + biglietto.prezzo}"></div>
-                    <div sec:authorize="hasAuthority('ADMIN')" class="ms-2">
-                        <div th:text="${#{admin.concerto.biglietto.quantita} + ' ' + biglietto.quantita}"
-                            class="alert alert-info" role="alert">
+                    <div sec:authorize="hasAuthority('ADMIN')" class="ms-3">
+                        <div th:text="#{admin.concerto.biglietto.quantita} + ' ' + ${biglietto.quantita}"
+                            class="alert alert-info my-auto" role="alert">
                         </div>
                     </div>
                     <div sec:authorize="hasAuthority('UTENTE')" class="ms-2">

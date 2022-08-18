@@ -11,8 +11,7 @@ public enum TipoBiglietto {
         this.nome = nome;
     }
 
-    @Override
-    public String toString() {
+    public String getNome() {
         return this.nome;
     }
     

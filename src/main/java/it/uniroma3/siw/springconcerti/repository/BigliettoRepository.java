@@ -10,5 +10,5 @@ import it.uniroma3.siw.springconcerti.model.Concerto;
 public interface BigliettoRepository extends CrudRepository<Biglietto, Long> {
 
     public boolean existsByNomeAndConcerto(String nome, Concerto concerto);
-    
+
 }

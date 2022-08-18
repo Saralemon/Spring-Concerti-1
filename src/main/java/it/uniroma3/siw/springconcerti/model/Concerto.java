@@ -48,5 +48,12 @@ public class Concerto {
     public Concerto() {
         this.biglietti = new LinkedList<>();
     }
+
+    public Concerto(String nome, LocalDate data, LocalTime orario) {
+        this();
+        this.nome = nome;
+        this.data = data;
+        this.orario = orario;
+    }
     
 }
