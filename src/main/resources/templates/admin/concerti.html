@@ -24,17 +24,16 @@
                             <th scope="col" th:text="#{admin.concerti.nome}"></th>
                             <th scope="col" th:text="#{admin.concerti.data}"></th>
                             <th scope="col" th:text="#{admin.concerti.luogo}"></th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="concerto : ${concerti}">
-                            <td class="align-middle" th:text="${concerto.nome}"></td>
-                            <td class="align-middle">
+                        <tr th:each="concerto : ${concerti}" class="align-middle">
+                            <td th:text="${concerto.nome}"></td>
+                            <td>
                                 <span th:text="${#temporals.format(concerto.data, 'dd/MM/yyyy') + ', '}"></span>
                                 <span th:text="${#temporals.format(concerto.orario, 'HH:mm')}"></span>
                             </td>
-                            <td class="align-middle" th:text="${concerto.luogo.nome}"></td>
+                            <td th:text="${concerto.luogo.nome}"></td>
                             <td>
                                 <a class="btn btn-primary" th:href="@{'/concerti/' + ${concerto.id}}">
                                     <i class="fa-solid fa-screwdriver-wrench"></i>

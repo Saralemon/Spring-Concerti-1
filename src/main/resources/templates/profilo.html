@@ -17,47 +17,38 @@
                 </div>
             </section>
             <!-- Prenotazioni dell'utente -->
-            <!-- 
-                <section class="container px-lg-5 table-responsive">
+            <section class="container px-lg-5 table-responsive" sec:authorize="hasAuthority('UTENTE')">
                 <table class="table text-center align-middle">
                     <thead>
                         <tr>
-                            <th scope="col">Cod. Prenotazione</th>
-                            <th scope="col">Data Prenotazione</th>
-                            <th scope="col">Concerto</th>
-                            <th scope="col">Data Concerto</th>
-                            <th scope="col">Posto</th>
-                            <th scope="col">Prezzo</th>
+                            <th scope="col" th:text="#{profilo.prenotazione.data}"></th>
+                            <th scope="col" th:text="#{profilo.prenotazione.concerto.nome}"></th>
+                            <th scope="col" th:text="#{profilo.prenotazione.concerto.data}"></th>
+                            <th scope="col" th:text="#{profilo.prenotazione.biglietto.nome}"></th>
+                            <th scope="col" th:text="#{profilo.prenotazione.biglietto.prezzo}"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="prenotazione : ${utente.prenotazioni}">
-                            <th scope="row" th:text="${prenotazione.id}">24</th>
-                            <td th:text="${#temporals.format(prenotazione.dataPrenotazione, 'dd/MM/yyyy HH:mm')}">01/01/2000 00:00</td>
-                            <td th:text="${prenotazione.biglietto.concerto.nome}">Nome Concerto</td>
+                        <tr th:each="prenotazione : ${utente.prenotazioni}" class="align-middle">
+                            <td th:text="${#temporals.format(prenotazione.dataPrenotazione, 'dd/MM/yyyy HH:mm')}"></td>
+                            <td th:text="${prenotazione.biglietto.concerto.nome}"></td>
                             <td>
-                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.data, 'dd/MM/yyyy')}">
-                                    01/01/2000
-                                </span>
-                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.orario, 'HH:mm')}">
-                                    00:00
-                                </span>
+                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.data, 'dd/MM/yyyy') + ', '}"></span>
+                                <span th:text="${#temporals.format(prenotazione.biglietto.concerto.orario, 'HH:mm')}"></span>
                             </td>
-                            <td th:text="${prenotazione.biglietto.nome}">Curva</td>
+                            <td th:text="${prenotazione.biglietto.nome}"></td>
+                            <td th:text="${prenotazione.biglietto.prezzo + valuta}"></td>
                             <td>
-                                <span th:text="${prenotazione.biglietto.prezzo}">00,00</span>
-                                <span th:text="${valuta}">€</span>
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" th:href="@{'/prenotazione/' + ${prenotazione.id} + '/cancella'}">
-                                    <span>Annulla Prenotazione</span>
+                                <a class="btn btn-danger" th:href="@{'/prenotazioni/' + ${prenotazione.id} + '/delete'}">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    <span th:text="#{profilo.prenotazione.annulla}"></span>
                                 </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </section>
-             -->
+
 
         </main>
 

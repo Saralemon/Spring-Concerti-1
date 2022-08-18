@@ -52,5 +52,15 @@ public class Biglietto {
         this.prezzo = prezzo;
         this.quantita = quantita;
     }
+
+    public static void riduciQuantita(Biglietto biglietto) {
+        Integer quantita = biglietto.getQuantita() - 1;
+        biglietto.setQuantita(quantita);
+    }
+
+    public static void aumentaQuantita(Biglietto biglietto) {
+        Integer quantita = biglietto.getQuantita() + 1;
+        biglietto.setQuantita(quantita);
+    }
     
 }

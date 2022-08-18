@@ -12,9 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Prenotazione {
 
     @Id
@@ -29,8 +31,10 @@ public class Prenotazione {
     @ManyToOne(cascade = MERGE)
     private Utente acquirente;
 
-    public Prenotazione() {
+    public Prenotazione(Biglietto biglietto, Utente utente) {
         this.dataPrenotazione = LocalDateTime.now();
+        this.biglietto = biglietto;
+        this.acquirente = utente;
     }
     
 }

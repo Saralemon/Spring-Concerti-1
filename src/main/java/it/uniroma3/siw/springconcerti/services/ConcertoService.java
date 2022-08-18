@@ -7,6 +7,7 @@ import static java.util.stream.StreamSupport.stream;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +34,48 @@ public class ConcertoService {
 
     public List<Concerto> getConcerti() {
         return stream(this.concertoRepository.findAll().spliterator(), false).collect(toList());
+    }
+
+    public List<Concerto> getConcerti(LocalDate dataDa, LocalDate dataA) {
+        return this.concertoRepository.findTop6ByDataBetweenOrderByData(dataDa, dataA);
+    }
+
+    public Pair<Integer, List<Concerto>> getConcerti(Luogo luogo, LocalDate dataDa, LocalDate dataA) {
+        Integer nConcerti = 0;
+        List<Concerto> concerti = null;
+        if(luogo == null && dataDa == null && dataA == null) {
+            nConcerti = this.contaConcerti();
+            concerti = this.getConcerti();
+        }
+        if(luogo == null && dataDa == null && dataA != null) {
+            nConcerti = this.concertoRepository.countByDataBetween(LocalDate.now(), dataA);
+            concerti = this.concertoRepository.findByDataBetween(LocalDate.now(), dataA);
+        }
+        if(luogo == null && dataDa != null && dataA == null) {
+            nConcerti = this.concertoRepository.countByDataGreaterThanEqual(dataDa);
+            concerti = this.concertoRepository.findByDataGreaterThanEqual(dataDa);
+        }
+        if(luogo == null && dataDa != null && dataA != null) {
+            nConcerti = this.concertoRepository.countByDataBetween(dataDa, dataA);
+            concerti = this.concertoRepository.findByDataBetween(dataDa, dataA);
+        }
+        if(luogo != null && dataDa == null && dataA == null) {
+            nConcerti = this.concertoRepository.countByLuogo(luogo);
+            concerti = this.concertoRepository.findByLuogo(luogo);
+        }
+        if(luogo != null && dataDa == null && dataA != null) {
+            nConcerti = this.concertoRepository.countByLuogoAndDataBetween(luogo, LocalDate.now(), dataA);
+            concerti = this.concertoRepository.findByLuogoAndDataBetween(luogo, LocalDate.now(), dataA);
+        }
+        if(luogo != null && dataDa != null && dataA == null) {
+            nConcerti = this.concertoRepository.countByLuogoAndDataGreaterThanEqual(luogo, dataDa);
+            concerti = this.concertoRepository.findByLuogoAndDataGreaterThanEqual(luogo, dataDa);
+        }
+        if(luogo != null && dataDa != null && dataA != null) {
+            nConcerti = this.concertoRepository.countByLuogoAndDataBetween(luogo, dataDa, dataA);
+            concerti = this.concertoRepository.findByLuogoAndDataBetween(luogo, dataDa, dataA);
+        }
+        return Pair.of(nConcerti, concerti);
     }
 
     public Concerto getConcerto(Long id) {
