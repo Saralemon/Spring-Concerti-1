@@ -23,15 +23,15 @@ L'utente, previa autenticazione, può prenotare, se disponibile un biglietto per
 Realizzare un'Applicazione web in Springboot e HTML+CSS per soddisfare le necessità del contesto di riferimento, con l'implementazione dei casi d'uso sotto riportati
 
 ## Casi d'uso
-> Caso d'uso UC1: Iscrizione Nuovo Utente - Attore Primario: Un Utente Anonimo
+> Caso d'uso UC1: Iscrizione Nuovo Utente - Attore Primario: Utente Anonimo
 
 Un utente Anonimo usa il sistema per iscriversi come Utente per potere effettuare le prenotazioni. Il Sistema salva il nuovo Utente nel DBMS
 
-> Caso d'uso UC2: Effettua Prenotazione - Attore Primario: Un Utente Autenticato
+> Caso d'uso UC2: Effettua Prenotazione - Attore Primario: Utente Autenticato
 
 L'Utente seleziona il concerto a cui vuole prenotare un biglietto, seleziona il biglietto che più preferisce. Il Sistema crea una nuova prenotazione per quel biglietto. La disponibilità per quel biglietto viene decrementata di 1 dal Sistema
 
-> Caso d'uso UC3: Annulla Prenotazione - Attore Primario: Un Utente Autenticato
+> Caso d'uso UC3: Annulla Prenotazione - Attore Primario: Utente Autenticato
 
 L'Utente seleziona una delle sue prenotazioni, il Sistema cancella la prenotazione per quel biglietto e incrementa di 1 la quantità disponibile per quel biglietto
 
