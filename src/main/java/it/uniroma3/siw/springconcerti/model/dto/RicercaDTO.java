@@ -1,4 +1,4 @@
-package it.uniroma3.siw.springconcerti.dto;
+package it.uniroma3.siw.springconcerti.model.dto;
 
 import java.time.LocalDate;
 

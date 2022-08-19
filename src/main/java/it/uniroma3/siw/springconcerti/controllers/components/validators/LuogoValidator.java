@@ -1,4 +1,4 @@
-package it.uniroma3.siw.springconcerti.validators;
+package it.uniroma3.siw.springconcerti.controllers.components.validators;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

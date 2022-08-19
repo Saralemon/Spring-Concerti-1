@@ -1,7 +1,7 @@
 package it.uniroma3.siw.springconcerti.controllers;
 
-import static it.uniroma3.siw.springconcerti.enumeration.Ruolo.ADMIN;
-import static it.uniroma3.siw.springconcerti.enumeration.Ruolo.UTENTE;
+import static it.uniroma3.siw.springconcerti.model.enumeration.Ruolo.ADMIN;
+import static it.uniroma3.siw.springconcerti.model.enumeration.Ruolo.UTENTE;
 
 import javax.validation.Valid;
 
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.uniroma3.siw.springconcerti.components.UserDetailsComponent;
+import it.uniroma3.siw.springconcerti.controllers.components.UserDetailsComponent;
+import it.uniroma3.siw.springconcerti.controllers.components.validators.CredenzialiValidator;
+import it.uniroma3.siw.springconcerti.controllers.components.validators.UtenteValidator;
 import it.uniroma3.siw.springconcerti.model.Credenziali;
 import it.uniroma3.siw.springconcerti.model.Utente;
 import it.uniroma3.siw.springconcerti.services.CredenzialiService;
-import it.uniroma3.siw.springconcerti.validators.CredenzialiValidator;
-import it.uniroma3.siw.springconcerti.validators.UtenteValidator;
 import lombok.RequiredArgsConstructor;
 
 @Controller

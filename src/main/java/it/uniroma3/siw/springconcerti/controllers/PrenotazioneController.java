@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import it.uniroma3.siw.springconcerti.components.UserDetailsComponent;
+import it.uniroma3.siw.springconcerti.controllers.components.UserDetailsComponent;
 import it.uniroma3.siw.springconcerti.model.Biglietto;
 import it.uniroma3.siw.springconcerti.model.Prenotazione;
 import it.uniroma3.siw.springconcerti.model.Utente;

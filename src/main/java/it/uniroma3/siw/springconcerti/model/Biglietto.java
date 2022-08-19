@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import it.uniroma3.siw.springconcerti.enumeration.TipoBiglietto;
+import it.uniroma3.siw.springconcerti.model.enumeration.TipoBiglietto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

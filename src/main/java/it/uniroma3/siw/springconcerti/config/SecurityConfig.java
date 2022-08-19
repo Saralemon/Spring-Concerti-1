@@ -1,6 +1,6 @@
 package it.uniroma3.siw.springconcerti.config;
 
-import static it.uniroma3.siw.springconcerti.enumeration.Ruolo.ADMIN;
+import static it.uniroma3.siw.springconcerti.model.enumeration.Ruolo.ADMIN;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
 

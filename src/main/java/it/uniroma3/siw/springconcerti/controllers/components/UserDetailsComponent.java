@@ -1,4 +1,4 @@
-package it.uniroma3.siw.springconcerti.components;
+package it.uniroma3.siw.springconcerti.controllers.components;
 
 import static org.springframework.security.core.context.SecurityContextHolder.getContext;
 

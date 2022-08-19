@@ -1,6 +1,6 @@
 package it.uniroma3.siw.springconcerti.controllers;
 
-import static it.uniroma3.siw.springconcerti.constants.CurrencyConstants.SIMBOLO_MONETA;
+import static it.uniroma3.siw.springconcerti.controllers.components.constants.CurrencyConstants.SIMBOLO_MONETA;
 import static java.time.format.TextStyle.SHORT;
 
 import java.util.Locale;
@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.uniroma3.siw.springconcerti.enumeration.TipoBiglietto;
+import it.uniroma3.siw.springconcerti.controllers.components.validators.BigliettoValidator;
+import it.uniroma3.siw.springconcerti.controllers.components.validators.ConcertoValidator;
 import it.uniroma3.siw.springconcerti.model.Biglietto;
 import it.uniroma3.siw.springconcerti.model.Concerto;
+import it.uniroma3.siw.springconcerti.model.enumeration.TipoBiglietto;
 import it.uniroma3.siw.springconcerti.services.ConcertoService;
 import it.uniroma3.siw.springconcerti.services.LuogoService;
-import it.uniroma3.siw.springconcerti.validators.BigliettoValidator;
-import it.uniroma3.siw.springconcerti.validators.ConcertoValidator;
 import lombok.RequiredArgsConstructor;
 
 @Controller

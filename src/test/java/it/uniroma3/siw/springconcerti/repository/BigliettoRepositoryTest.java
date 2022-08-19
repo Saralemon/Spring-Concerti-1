@@ -1,6 +1,6 @@
 package it.uniroma3.siw.springconcerti.repository;
 
-import static it.uniroma3.siw.springconcerti.enumeration.TipoBiglietto.INTERO;
+import static it.uniroma3.siw.springconcerti.model.enumeration.TipoBiglietto.INTERO;
 import static org.assertj.core.api.Assertions.*;
 
 import java.time.LocalDate;
@@ -12,10 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import it.uniroma3.siw.springconcerti.enumeration.TipoBiglietto;
 import it.uniroma3.siw.springconcerti.model.Biglietto;
 import it.uniroma3.siw.springconcerti.model.Concerto;
 import it.uniroma3.siw.springconcerti.model.Luogo;
+import it.uniroma3.siw.springconcerti.model.enumeration.TipoBiglietto;
 
 @DataJpaTest
 public class BigliettoRepositoryTest {

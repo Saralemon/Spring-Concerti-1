@@ -1,4 +1,4 @@
-package it.uniroma3.siw.springconcerti.constants;
+package it.uniroma3.siw.springconcerti.controllers.components.constants;
 
 import java.util.Currency;
 import java.util.Locale;

@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import it.uniroma3.siw.springconcerti.enumeration.Ruolo;
+import it.uniroma3.siw.springconcerti.model.enumeration.Ruolo;
 import lombok.Data;
 
 @Data

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.springconcerti.controllers.components.validators.LuogoValidator;
 import it.uniroma3.siw.springconcerti.model.Luogo;
 import it.uniroma3.siw.springconcerti.services.LuogoService;
-import it.uniroma3.siw.springconcerti.validators.LuogoValidator;
 import lombok.RequiredArgsConstructor;
 
 @Controller
