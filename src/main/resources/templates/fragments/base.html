@@ -6,19 +6,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" th:href="@{/layout/css/bootstrap.css}">
+		<link rel="stylesheet" th:href="@{/layout/bootstrap/css/bootstrap.css}">
 		<!-- Icone FontAwesome -->
 		<link rel="stylesheet" th:href="@{/layout/fontawesome/css/all.css}">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" th:href="@{/layout/css/style.css}">
 	</head>
-
-	<!-- 
-		<link rel="stylesheet" href="/src/main/resources/static/layout/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="/src/main/resources/static/layout/css/bootstrap.css">
-        <link rel="stylesheet" href="/src/main/resources/static/layout/css/style.css">
-        <script src="/src/main/resources/static/layout/javascript/bootstrap.bundle.js"></script>
-	 -->
 
 	<body class="mx-0 mx-md-3" th:fragment="body(main)">
 
@@ -29,26 +22,25 @@
 				<a class="navbar-brand" sec:authorize="isAnonymous()" th:href="@{/index}" th:text="#{app.nome}"></a>
 				<div sec:authorize="isAnonymous()" class="nav-item">
 					<a class="btn btn-outline-light" th:href="@{/login}">
-						<i class="bi bi-person"></i>
+						<i class="fa-solid fa-user"></i>
 						<span th:text="#{nav.area}"></span>
 					</a>
 				</div>
 				<div sec:authorize="isAuthenticated()" class="nav-item dropstart">
 					<button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-						aria-expanded="false" sec:authentication="name">
+						aria-expanded="false" th:text="#{nav.area}">
 					</button>
 					<ul class="dropdown-menu">
 						<li>
 							<a class="dropdown-item" th:href="@{/profilo}">
 								<i class="fa-solid fa-user"></i>
-								<i class="bi-person"></i>
 								<span th:text="#{nav.profilo}"></span>
 							</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
 							<a class="dropdown-item" th:href="@{/logout}">
-								<i class="bi-box-arrow-left"></i>
+								<i class="fa-solid fa-arrow-right-from-bracket"></i>
 								<span th:text="#{app.logout}"></span>
 							</a>
 						</li>
@@ -73,14 +65,13 @@
 				<h5 th:text="#{footer.social}"></h5>
 				<div class="h3 d-flex gap-3">
 					<!-- per colorare usare text-{color} -->
-					<i class="bi-facebook"></i>
-					<i class="bi-instagram"></i>
-					<i class="bi-twitter"></i>
+					<i class="fa-brands fa-facebook"></i>
+					<i class="fa-brands fa-instagram"></i>
+					<i class="fa-brands fa-twitter"></i>
 				</div>
 			</div>
 			<div class="container-fluid bg-primary text-light d-flex py-3">
 				<h6 class="m-0" th:text="#{app.nome}"></h6>
-				<i class="bi-stars ms-2"></i>
 				<div class="ms-auto">
 					<a class="text-light" sec:authorize="isAnonymous()" th:href="@{/login}"
 						th:text="#{app.login}">
@@ -93,7 +84,7 @@
 		</footer>
 
 		<!-- Script -->
-		<script th:src="@{/layout/js/bootstrap.bundle.js}"></script>
+		<script th:src="@{/layout/bootstrap/js/bootstrap.bundle.js}"></script>
 
 	</body>
 

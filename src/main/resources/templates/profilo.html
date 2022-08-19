@@ -18,9 +18,9 @@
             </section>
             <!-- Prenotazioni dell'utente -->
             <section class="container px-lg-5 table-responsive" sec:authorize="hasAuthority('UTENTE')">
-                <table class="table text-center align-middle">
+                <table class="table table-striped table-sm text-center">
                     <thead>
-                        <tr>
+                        <tr class="table-dark">
                             <th scope="col" th:text="#{profilo.prenotazione.data}"></th>
                             <th scope="col" th:text="#{profilo.prenotazione.concerto.nome}"></th>
                             <th scope="col" th:text="#{profilo.prenotazione.concerto.data}"></th>
